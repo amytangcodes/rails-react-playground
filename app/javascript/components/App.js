@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "semantic-ui-css/semantic.min.css";
 import styled from "styled-components";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Container } from "semantic-ui-react";
 
 import Navbar from "./Navbar";
 import HelloWorld from "./HelloWorld";
@@ -34,7 +34,7 @@ class App extends Component {
           active={activeItem}
           onClick={this.handleItemClick}
         />
-        <section>
+        <Container>
           <Switch>
             <Route exact path="/" render={() => <Home />} />
             <Route
@@ -42,7 +42,7 @@ class App extends Component {
               render={() => <HelloWorld greeting="friend" />}
             />
           </Switch>
-        </section>
+        </Container>
       </BrowserRouter>
     );
   }

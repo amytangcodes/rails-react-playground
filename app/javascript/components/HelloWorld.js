@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-class HelloWorld extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Greeting: {this.props.greeting}</h1>
-        <p>React Component is showing!</p>
-      </div>
-    );
-  }
-}
+const HelloWorld = (props) => {
+  return (
+    <div>
+      <h1>Hello Page</h1>
+      <p>Greetings, {props.greeting}</p>
+    </div>
+  );
+};
 
 HelloWorld.propTypes = {
   greeting: PropTypes.string,

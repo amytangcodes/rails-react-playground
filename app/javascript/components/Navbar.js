@@ -1,24 +1,20 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Menu, Container } from "semantic-ui-react";
 
-class Navbar extends Component {
-  render() {
-    const { items, onClick } = this.props;
+const Navbar = ({ items }) => {
+  let menuItems = items.map((item) => {
+    const { name, route, key } = item;
+    return <Menu.Item key={key} name={name} as={NavLink} exact to={route} />;
+  });
 
-    return (
-      <Menu>
-        {items.map((item) => (
-          <Menu.Item
-            key={item.key}
-            href={item.link}
-            name={item.name}
-            onClick={onClick}
-          />
-        ))}
-      </Menu>
-    );
-  }
-}
+  return (
+    <Menu>
+      <Container>{menuItems}</Container>
+    </Menu>
+  );
+};
+
+Navbar.propTypes = {};
 
 export default Navbar;
